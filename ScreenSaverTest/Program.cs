@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ScreenSaverTest
@@ -15,8 +12,42 @@ namespace ScreenSaverTest
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ShowScreenSaver();
-            Application.Run();
+            if (args.Any())
+            {
+                string firstArgument = args[0].ToLower().Trim();
+                string secondArgument = string.Empty;
+
+                // Handle cases where arguments are separated by colon.
+                // Examples: /c:1234567 or /P:1234567
+                if (firstArgument.Length > 2)
+                {
+                    secondArgument = firstArgument.Substring(3).Trim();
+                    firstArgument = firstArgument.Substring(0, 2);
+                }
+
+                switch (firstArgument)
+                {
+                    // Configuration mode
+                    case "/c":
+                        MessageBox.Show($"Mode not implemented yet: {firstArgument}.");
+                        break;
+
+                    // Preview mode
+                    case "/p":
+                        MessageBox.Show($"Mode not implemented yet: {firstArgument}.");
+                        break;
+
+                    // Fullscreen mode
+                    case "/s":
+                        ShowScreenSaver();
+                        Application.Run();
+                        break;
+
+                    default:
+                        MessageBox.Show($"Invalid argument: {firstArgument}.");
+                        break;
+                }
+            }
         }
 
         private static void ShowScreenSaver()
