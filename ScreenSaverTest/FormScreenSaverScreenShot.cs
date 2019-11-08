@@ -1,27 +1,44 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace ScreenSaverTest
 {
     public partial class FormScreenSaverScreenShot : Form
     {
-        public FormScreenSaverScreenShot()
+        private Rectangle screenBounds;
+
+        private FormScreenSaverScreenShot()
         {
             InitializeComponent();
-            this.KeyDown += Form1_KeyDown;
-            this.Load += Form1_Load;
-            this.FormClosing += Form1_FormClosing;
+
+            this.KeyDown += FormScreenSaverScreenShot_KeyDown;
+            this.Load += FormScreenSaverScreenShot_Load;
+            this.FormClosing += FormScreenSaverScreenShot_FormClosing;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public FormScreenSaverScreenShot(Screen screen) : this()
         {
-            this.pbScreenShot.Image = GetScreenPicture();
-            WindowState = FormWindowState.Maximized;
+            this.screenBounds = screen.Bounds;
+        }
+
+        private void FormScreenSaverScreenShot_Load(object sender, EventArgs e)
+        {
+            this.pbScreenShot.Image = GetScreenPicture(this.screenBounds);
+            this.Location = this.screenBounds.Location;
+            this.WindowState = FormWindowState.Maximized;
+
+            if (!Debugger.IsAttached)
+            {
+                this.TopMost = true;
+            }
+
             KeyboardHandler.CreateHookKeyboard();
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void FormScreenSaverScreenShot_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing ||
                 e.CloseReason == CloseReason.TaskManagerClosing)
@@ -30,7 +47,7 @@ namespace ScreenSaverTest
             }
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void FormScreenSaverScreenShot_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Modifiers == Keys.Control
                 && e.KeyCode == Keys.W)
@@ -39,13 +56,11 @@ namespace ScreenSaverTest
             }
         }
 
-        public static Image GetScreenPicture()
+        public Image GetScreenPicture(Rectangle bounds)
         {
-            Rectangle bounds = Screen.GetBounds(Point.Empty);
-
-            Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height);
+            Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height, PixelFormat.Format32bppArgb);
             Graphics g = Graphics.FromImage(bitmap);
-            g.CopyFromScreen(Point.Empty, Point.Empty, bounds.Size);
+            g.CopyFromScreen(bounds.X, bounds.Y, 0, 0, bounds.Size, CopyPixelOperation.SourceCopy);
             //bitmap.Save(Environment.CurrentDirectory + @"\test.jpg", ImageFormat.Jpeg);
 
             return bitmap;

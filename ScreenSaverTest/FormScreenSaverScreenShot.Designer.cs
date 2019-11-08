@@ -32,17 +32,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbScreenShot)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pbScreenShot
             // 
             this.pbScreenShot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbScreenShot.Location = new System.Drawing.Point(0, 0);
-            this.pbScreenShot.Name = "pictureBox1";
+            this.pbScreenShot.Name = "pbScreenShot";
             this.pbScreenShot.Size = new System.Drawing.Size(984, 521);
             this.pbScreenShot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbScreenShot.TabIndex = 0;
             this.pbScreenShot.TabStop = false;
             // 
-            // Form1
+            // FormScreenSaverScreenShot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -51,9 +51,9 @@
             this.Controls.Add(this.pbScreenShot);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "FormScreenSaverScreenShot";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbScreenShot)).EndInit();
             this.ResumeLayout(false);

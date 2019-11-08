@@ -63,7 +63,11 @@ namespace ScreenSaverTest
 
         public static void CreateHookKeyboard()
         {
-            if (ptrHook != null)
+            if (ptrHook == null)
+            {
+                RemoveHookOnProgramClosing();
+            }
+            else
             {
                 RemoveHookKeyboard();
             }
@@ -71,8 +75,6 @@ namespace ScreenSaverTest
             ProcessModule objCurrentModule = Process.GetCurrentProcess().MainModule;
             objKeyboardProcess = new LowLevelKeyboardProc(captureKey);
             ptrHook = SetWindowsHookEx(13, objKeyboardProcess, GetModuleHandle(objCurrentModule.ModuleName), 0);
-
-            RemoveHookOnProgramClosing();
         }
 
         private static void RemoveHookOnProgramClosing()

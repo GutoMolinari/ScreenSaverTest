@@ -10,11 +10,22 @@ namespace ScreenSaverTest
     public static class Program
     {
         [STAThread]
-        public static void Main()
+        public static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormScreenSaverScreenShot());
-        }        
+
+            ShowScreenSaver();
+            Application.Run();
+        }
+
+        private static void ShowScreenSaver()
+        {
+            foreach (Screen screen in Screen.AllScreens)
+            {
+                var screenSaver = new FormScreenSaverScreenShot(screen);
+                screenSaver.Show();
+            }
+        }
     }
 }
