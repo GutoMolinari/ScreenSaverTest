@@ -29,12 +29,12 @@ namespace ScreenSaverTest
                 {
                     // Configuration mode
                     case "/c":
-                        MessageBox.Show($"Mode not implemented yet: {firstArgument}.");
+                        MessageBox.Show($"Mode not implemented yet: Configuration ({firstArgument}).");
                         break;
 
                     // Preview mode
                     case "/p":
-                        MessageBox.Show($"Mode not implemented yet: {firstArgument}.");
+                        MessageBox.Show($"Mode not implemented yet: Preview ({firstArgument}).");
                         break;
 
                     // Fullscreen mode
