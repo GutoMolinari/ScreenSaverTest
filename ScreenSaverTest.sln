@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenSaverTest", "ScreenSaverTest\ScreenSaverTest.csproj", "{BA312C86-11BC-4D26-B22D-1BFE62C64ED7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA312C86-11BC-4D26-B22D-1BFE62C64ED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA312C86-11BC-4D26-B22D-1BFE62C64ED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA312C86-11BC-4D26-B22D-1BFE62C64ED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA312C86-11BC-4D26-B22D-1BFE62C64ED7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D753E45-33E0-4719-9C36-028500AAFC4F}
+	EndGlobalSection
+EndGlobal
