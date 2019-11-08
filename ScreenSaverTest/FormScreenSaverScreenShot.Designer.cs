@@ -1,6 +1,6 @@
 ﻿namespace ScreenSaverTest
 {
-    partial class Form1
+    partial class FormScreenSaverScreenShot
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pbScreenShot = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbScreenShot)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(984, 521);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pbScreenShot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbScreenShot.Location = new System.Drawing.Point(0, 0);
+            this.pbScreenShot.Name = "pictureBox1";
+            this.pbScreenShot.Size = new System.Drawing.Size(984, 521);
+            this.pbScreenShot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbScreenShot.TabIndex = 0;
+            this.pbScreenShot.TabStop = false;
             // 
             // Form1
             // 
@@ -48,21 +48,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(984, 521);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbScreenShot);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbScreenShot)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbScreenShot;
     }
 }
 
