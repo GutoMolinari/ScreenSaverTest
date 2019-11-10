@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 
-namespace ScreenSaverTest
+namespace ScreenSaverTest.Forms
 {
     public partial class FormScreenSaverScreenShot : Form
     {

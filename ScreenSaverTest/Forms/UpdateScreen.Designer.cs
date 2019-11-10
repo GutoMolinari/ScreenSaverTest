@@ -1,4 +1,4 @@
-﻿namespace ScreenSaverTest
+﻿namespace ScreenSaverTest.Forms
 {
     partial class UpdateScreen
     {

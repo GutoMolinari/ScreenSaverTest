@@ -61,22 +61,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormScreenSaverScreenShot.cs">
+    <Compile Include="Forms\FormScreenSaverScreenShot.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormScreenSaverScreenShot.Designer.cs">
+    <Compile Include="Forms\FormScreenSaverScreenShot.Designer.cs">
       <DependentUpon>FormScreenSaverScreenShot.cs</DependentUpon>
     </Compile>
     <Compile Include="KeyboardHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UpdateScreen.cs">
+    <Compile Include="Forms\UpdateScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateScreen.Designer.cs">
+    <Compile Include="Forms\UpdateScreen.Designer.cs">
       <DependentUpon>UpdateScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormScreenSaverScreenShot.resx">
+    <EmbeddedResource Include="Forms\FormScreenSaverScreenShot.resx">
       <DependentUpon>FormScreenSaverScreenShot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -89,7 +89,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UpdateScreen.resx">
+    <EmbeddedResource Include="Forms\UpdateScreen.resx">
       <DependentUpon>UpdateScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

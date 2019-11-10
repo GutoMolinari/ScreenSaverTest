@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScreenSaverTest
+namespace ScreenSaverTest.Forms
 {
     public partial class UpdateScreen : Form
     {
