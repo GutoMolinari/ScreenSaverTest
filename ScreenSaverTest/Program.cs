@@ -12,6 +12,8 @@ namespace ScreenSaverTest
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            KeyboardHandler.CreateHookKeyboard();
+
             if (args.Any())
             {
                 string firstArgument = args[0].ToLower().Trim();
@@ -39,15 +41,24 @@ namespace ScreenSaverTest
 
                     // Fullscreen mode
                     case "/s":
-                        ShowScreenSaver();
-                        Application.Run();
+                        Run();
                         break;
 
                     default:
                         MessageBox.Show($"Invalid argument: {firstArgument}.");
                         break;
                 }
+            } 
+            else
+            {
+                Run();
             }
+        }
+
+        private static void Run()
+        {
+            ShowScreenSaver();
+            Application.Run();
         }
 
         private static void ShowScreenSaver()

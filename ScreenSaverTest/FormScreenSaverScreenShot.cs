@@ -34,8 +34,6 @@ namespace ScreenSaverTest
             {
                 this.TopMost = true;
             }
-
-            KeyboardHandler.CreateHookKeyboard();
         }
 
         private void FormScreenSaverScreenShot_FormClosing(object sender, FormClosingEventArgs e)

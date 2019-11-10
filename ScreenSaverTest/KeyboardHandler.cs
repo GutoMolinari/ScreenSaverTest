@@ -16,6 +16,8 @@ namespace ScreenSaverTest
             public int flags;
             public int time;
             public IntPtr extra;
+
+            public bool HasAltModifier() => (flags & 0x20) == 0x20;
         }
 
         // System level functions to be used for hook and unhook keyboard input  
@@ -41,24 +43,19 @@ namespace ScreenSaverTest
             {
                 KBDLLHOOKSTRUCT objKeyInfo = (KBDLLHOOKSTRUCT)Marshal.PtrToStructure(lp, typeof(KBDLLHOOKSTRUCT));
 
-                if (objKeyInfo.key == Keys.RWin ||
+                if (
+                    objKeyInfo.key == Keys.RWin ||
                     objKeyInfo.key == Keys.LWin ||
-                    (objKeyInfo.key == Keys.Tab && HasAltModifier(objKeyInfo.flags)) ||
-                    (objKeyInfo.key == Keys.Escape && HasAltModifier(objKeyInfo.flags)) ||
-                    (objKeyInfo.key == Keys.Escape && (Control.ModifierKeys & Keys.Control) == Keys.Control) ||
-                    ((Control.ModifierKeys & Keys.Control) == Keys.Control && HasAltModifier(objKeyInfo.flags) && objKeyInfo.key == Keys.Delete)
-                    )
+                    ((Control.ModifierKeys & Keys.Alt) == Keys.Alt && (objKeyInfo.key == Keys.Tab || objKeyInfo.key == Keys.F4 || objKeyInfo.key == Keys.Escape)) ||
+                    ((Control.ModifierKeys & Keys.Control) == Keys.Control && objKeyInfo.key == Keys.Escape) ||
+                    (Control.ModifierKeys == (Keys.Control | Keys.Alt) && objKeyInfo.key == Keys.Delete)
+                   )
                 {
-                    return (IntPtr)1; // 1 define as handled
+                    return (IntPtr)1;
                 }
             }
 
             return CallNextHookEx(ptrHook, nCode, wp, lp);
-        }
-
-        private static bool HasAltModifier(int flags)
-        {
-            return (flags & 0x20) == 0x20;
         }
 
         public static void CreateHookKeyboard()
