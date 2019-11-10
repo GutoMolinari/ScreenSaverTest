@@ -37,6 +37,10 @@ namespace ScreenSaverTest
         private static IntPtr ptrHook;
         private static LowLevelKeyboardProc objKeyboardProcess;
 
+        private static bool AltKeyPressed() => (Control.ModifierKeys & Keys.Alt) == Keys.Alt;
+        private static bool CtrlKeyPressed() => (Control.ModifierKeys & Keys.Control) == Keys.Control;
+        private static bool CtrlAltKeysPressed() => Control.ModifierKeys == (Keys.Control | Keys.Alt);
+
         private static IntPtr captureKey(int nCode, IntPtr wp, IntPtr lp)
         {
             if (nCode >= 0)
@@ -46,9 +50,9 @@ namespace ScreenSaverTest
                 if (
                     objKeyInfo.key == Keys.RWin ||
                     objKeyInfo.key == Keys.LWin ||
-                    ((Control.ModifierKeys & Keys.Alt) == Keys.Alt && (objKeyInfo.key == Keys.Tab || objKeyInfo.key == Keys.F4 || objKeyInfo.key == Keys.Escape)) ||
-                    ((Control.ModifierKeys & Keys.Control) == Keys.Control && objKeyInfo.key == Keys.Escape) ||
-                    (Control.ModifierKeys == (Keys.Control | Keys.Alt) && objKeyInfo.key == Keys.Delete)
+                    (AltKeyPressed() && (objKeyInfo.key == Keys.Tab || objKeyInfo.key == Keys.F4 || objKeyInfo.key == Keys.Escape)) ||
+                    (CtrlKeyPressed() && objKeyInfo.key == Keys.Escape) ||
+                    (CtrlAltKeysPressed() && objKeyInfo.key == Keys.Delete)
                    )
                 {
                     return (IntPtr)1;
@@ -79,7 +83,7 @@ namespace ScreenSaverTest
             AppDomain.CurrentDomain.ProcessExit += delegate { RemoveHookKeyboard(); };
         }
 
-        public static void RemoveHookKeyboard()
+        private static void RemoveHookKeyboard()
         {
             UnhookWindowsHookEx(ptrHook);
         }
