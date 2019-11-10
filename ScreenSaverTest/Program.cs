@@ -57,6 +57,14 @@ namespace ScreenSaverTest
             }
         }
 
+        private static void CurrentDomain_ProcessExit(object sender, EventArgs e)
+        {
+            var process = new System.Diagnostics.Process();
+            process.StartInfo.FileName = Application.ExecutablePath;
+            //process.StartInfo.Arguments = "/s";
+            process.Start();
+        }
+
         private static void Run()
         {
             ShowScreenSaver();
