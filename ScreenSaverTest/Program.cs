@@ -51,6 +51,7 @@ namespace ScreenSaverTest
             } 
             else
             {
+                //Application.Run(new UpdateScreen());
                 Run();
             }
         }
