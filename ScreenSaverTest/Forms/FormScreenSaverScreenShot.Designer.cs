@@ -53,6 +53,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormScreenSaverScreenShot";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbScreenShot)).EndInit();
