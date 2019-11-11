@@ -42,6 +42,7 @@ namespace ScreenSaverTest
 
                     // Fullscreen mode
                     case "/s":
+                        AppDomain.CurrentDomain.ProcessExit += delegate{ CurrentDomain_ProcessExit(); };
                         Run();
                         break;
 
@@ -57,11 +58,10 @@ namespace ScreenSaverTest
             }
         }
 
-        private static void CurrentDomain_ProcessExit(object sender, EventArgs e)
+        private static void CurrentDomain_ProcessExit()
         {
             var process = new System.Diagnostics.Process();
             process.StartInfo.FileName = Application.ExecutablePath;
-            //process.StartInfo.Arguments = "/s";
             process.Start();
         }
 
